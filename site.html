@@ -38,11 +38,44 @@
           }
       });
 
+      document.addEventListener('DOMContentLoaded', function() {
+          let incorrect = document.querySelectorAll('.incorrect3');
+          let correct = document.querySelector('.correct3');
+          correct.addEventListener('click', function(){
+              correct.style.backgroundColor = 'green';
+              document.querySelector('#l').innerHTML = 'Correct';
+              for(let i = 0; i < incorrect.length; i++){
+                  incorrect[i].disabled = true;
+              }
+          });
+          for(let i = 0; i < incorrect.length; i++){
+              incorrect[i].addEventListener('click', function() {
+                  incorrect[i].style.backgroundColor = 'red';
+                  document.querySelector('#l').innerHTML = 'False';
+              });
+          }
+      });
+
   </script>
   <head>
     <title>JS Mini Hackathon</title>
   </head>
   <body>
     <h1>Quiz Game</h1>
+    <h2>Question 1: Which of these animals has feathers?</h2>
+    <div class = "incorrect">A) Tiger</div>
+    <div class = "incorrect">B) Hippo</div>
+    <div class = "correct">C) Pigeon</div>
+    <div class = "incorrect">D) Dog</div>
+    <h2>Question 2: Which animal eats plants?</h2>
+    <div class = "incorrect">A) Tiger</div>
+    <div class = "correct2">B) Giraffe</div>
+    <div class = "incorrect">C) Dog</div>
+    <div class = "incorrect">D) Hyena</div>
+    <h2>Question 3: Which bird has the largest wingspan?</h2>
+    <div class = "correct3">A) Wandering albatross</div>
+    <div class = "incorrect">B) Pelican</div>
+    <div class = "incorrect">C) Stork</div>
+    <div class = "incorrect">D) Dove</div>
   </body>
 </html>
